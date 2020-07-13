@@ -1,5 +1,5 @@
 class Oystercard
-  attr_reader :balance
+  attr_reader :balance :in_journey
   UPPER_LIMIT = 90
 
   def initialize(balance = 0)
@@ -13,6 +13,10 @@ class Oystercard
 
   def deduct(amount)
     @balance -= amount
+  end
+
+  def in_journey?
+
   end
 
 end

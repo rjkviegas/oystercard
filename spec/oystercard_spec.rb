@@ -5,7 +5,7 @@
 # try to make instance of Oystercard in irb, oystercard.balance
 # create initialize method with default balance
 # create attr_reader :balance
-require 'oystercard'
+require "oystercard"
 
 describe Oystercard do
   it "creates an oystercard" do
@@ -16,8 +16,8 @@ describe Oystercard do
     expect(subject.balance).to eq 0
   end
 
-  describe '#top_up()' do
-    it 'can top_up' do
+  describe "#top_up()" do
+    it "can top_up" do
       expect(subject.top_up(5)).to eq subject.balance
     end
 
@@ -26,9 +26,15 @@ describe Oystercard do
     end
   end
 
-  describe '#deduct()' do
-    it 'can deduct' do
+  describe "#deduct()" do
+    it "can deduct" do
       expect(Oystercard.new(85).deduct(5)).to eq 80
+    end
+  end
+
+  describe "#in_journey?" do
+    it "can touch in" do
+      expect(subject.touch_in.in_journey?).to eq true
     end
   end
 
@@ -46,7 +52,18 @@ end
 # create constant upper_limit = 90 for balance
 # implement limit in the top_up method, include upper_limit value
 
-#initialize with 10
+# initialize with 10
 # call deduct(5) on instance
-#FAIL
-# 
+# FAIL
+# Write unit test
+# call deduct(with an argument) on oystercard
+# call balance on oystercard and check balance has decreased to argument
+
+# call oystercard.touch_in
+# FAIL
+# Write unit test
+# Write in_journey? method with in_journey as instance variable
+# Write touch_in method to change in_journey == true
+# Write touch_out method to change in_journey == false
+# touch_in should respond in_journey == true if has been touched in
+# touch_out should respond in_journey == false if has been touched out
