@@ -32,13 +32,20 @@ When my journey is complete, I need the correct amount deducted from my card
 | ----------- | ----------- |
 |  Oystercard |   balance, top_up(), deduct(), in_use, in_journey?, empty?, touch_in, touch_out,    |
 
+In order to pay for my journey
+As a customer
+I need to know where I've travelled from
+
+ Write up a plan for how you will interact with your code and manually test in IRB
+ Using a double, write a test that expects the card to remember the entry station after the touch in
+ Update the touch_in method to accept the entry station
+ Update existing tests to pass a station to the touch_in method - you may need to declare your double in a let statement at the top of your describe block
+ Expose entry_station instance variable using an attribute reader
+ Make the card forget the entry station on touch out by setting it to nil
+ When your tests are all green, refactor to remove the in_journey variable. Rewrite the in_journey? method to infer its status based on whether or not there is an entry station
 
 
-
-
-
-touch_out to reduce balance by minimum fare
  
- Arrange: balance > minimum fare
- Act: oyster.touch_out
- Assert: balance -= minimum fare
+ Arrange: 
+ Act: 
+ Assert: 
