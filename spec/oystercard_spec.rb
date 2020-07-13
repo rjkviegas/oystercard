@@ -19,13 +19,14 @@ describe Oystercard do
       expect{ oyster.top_up(10) }.to raise_error "Balance cannot exceed £#{Oystercard::UPPER_LIMIT}"
     end
   end
-
+=begin
   describe "#deduct()" do
     let(:oyster) {Oystercard.new(85)}
     it "decreases the balance" do
       expect(oyster.deduct(5)).to eq oyster.balance
     end
   end
+=end
 
   describe "#in_journey?" do
     let(:oyster) {Oystercard.new(10)}
@@ -45,6 +46,13 @@ describe Oystercard do
     oyster = Oystercard.new(Oystercard::MINIMUM_FARE - 1)
     expect{ oyster.touch_in }.to raise_error "Balance is too low to travel"
     end 
+  end
+
+  describe "#touch_out" do
+    it "balance reduced by £#{Oystercard::MINIMUM_FARE}" do
+      oyster = Oystercard.new(Oystercard::MINIMUM_FARE * 2)
+      expect { oyster.touch_out }.to change { oyster.balance }.by (-Oystercard::MINIMUM_FARE)
+    end
   end
 
 end
