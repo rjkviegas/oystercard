@@ -1,5 +1,6 @@
 class Oystercard
-  attr_reader :balance, :in_use
+  attr_reader :balance
+  
   UPPER_LIMIT = 90
 
   def initialize(balance = 0)
@@ -25,6 +26,12 @@ class Oystercard
 
   def touch_out
     @in_use = false
+  end
+
+  private
+  
+  def in_use
+    @in_use
   end
 
 end
