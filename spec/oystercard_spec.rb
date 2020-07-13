@@ -34,7 +34,11 @@ describe Oystercard do
 
   describe "#in_journey?" do
     it "can touch in" do
-      expect(subject.touch_in.in_journey?).to eq true
+      expect(subject.touch_in.in_journey?).to be true
+    end
+
+    it "can touch out" do
+      expect(subject.touch_out.in_journey?).not_to be true
     end
   end
 
