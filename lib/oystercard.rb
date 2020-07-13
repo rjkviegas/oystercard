@@ -21,12 +21,10 @@ class Oystercard
 
   def touch_in
     @in_use = true
-    self
   end
 
   def touch_out
     @in_use = false
-    self
   end
 
 end

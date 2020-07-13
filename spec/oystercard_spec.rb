@@ -17,28 +17,33 @@ describe Oystercard do
   end
 
   describe "#top_up()" do
+    let(:oyster) {Oystercard.new(85)}
     it "can top_up" do
-      expect(subject.top_up(5)).to eq subject.balance
+      expect(oyster.top_up(5)).to eq oyster.balance
     end
 
     it "cannot top up past upper_limit" do
-      expect{ Oystercard.new(85).top_up(10) }.to raise_error "Balance cannot exceed £#{Oystercard::UPPER_LIMIT}"
+      expect{ oyster.top_up(10) }.to raise_error "Balance cannot exceed £#{Oystercard::UPPER_LIMIT}"
     end
   end
 
   describe "#deduct()" do
+    let(:oyster) {Oystercard.new(85)}
     it "can deduct" do
-      expect(Oystercard.new(85).deduct(5)).to eq 80
+      expect(oyster.deduct(5)).to eq oyster.balance
     end
   end
 
   describe "#in_journey?" do
+    let(:oyster) {Oystercard.new}
     it "can touch in" do
-      expect(subject.touch_in.in_journey?).to be true
+      oyster.touch_in
+      expect(oyster.in_journey?).to be true
     end
 
     it "can touch out" do
-      expect(subject.touch_out.in_journey?).not_to be true
+      oyster.touch_out
+      expect(oyster.in_journey?).to be false
     end
   end
 
