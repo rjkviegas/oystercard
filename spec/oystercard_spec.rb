@@ -15,4 +15,16 @@ describe Oystercard do
   it "has a starting balance of 0" do
     expect(subject.balance).to eq 0
   end
+
+  describe '#top_up()' do
+    it 'can top_up' do
+      expect(subject.top_up(5)).to eq subject.balance
+    end
+  end
+  
 end
+
+# initialize an instance of the Oystercard class, balance = 0/default
+# call top_up(with an arguement) on instance of Oystercard (oystercard)
+# FAIL
+# call balance on oystercard and check balance has increased to argument
